@@ -1,2 +1,2 @@
-# zarin
-Adaptive web design of the ZARIN website.
+# zarrin
+Adaptive web design of the ZARRIN website.
