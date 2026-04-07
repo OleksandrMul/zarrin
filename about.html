@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
-		<title>Home</title>
+		<title>About</title>
 		<link rel="modulepreload" crossorigin href="./js/common.min.js?v=1775578037932">
 		<script type="module" crossorigin="" src="./js/popup.min.js?v=1775578037932"></script>
 		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1775578037932">
@@ -15,24 +15,26 @@
 			<header data-fls-header="" class="header">
 				<div class="header__container">
 					<div class="header__body">
-						<div class="header__logo">
-							<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44" fill="none">
-								<path fill="#7c4ee4" d="M4.89 38.972C1.091 35.228-.69 29.532.38 24.298c1.06-5.878 5.625-11.002 11.39-12.617 2.823 2.864 5.682 5.689 8.517 8.537.584.563 1.12 1.177 1.75 1.69-2.01.02-4.023-.053-6.03.025-2.772.175-5.121 2.79-4.966 5.57-.026 2.807 2.49 5.343 5.298 5.326 5.522.013 11.044-.001 16.563.009 3.628 3.632 7.25 7.272 10.898 10.886-.564.107-1.136.078-1.705.073l-25.54.001c-4.318.011-8.631-1.74-11.667-4.826"></path>
-								<path fill="#7c4ee4" d="M10.758 10.713C7.168 7.148 3.633 3.523 0 0c8.499.033 16.996.005 25.495.016 1.426.019 2.867-.081 4.277.187a16.3 16.3 0 0 1 9.539 4.92c2.78 2.883 4.407 6.825 4.533 10.823a16.6 16.6 0 0 1-2.621 9.388c-2.1 3.223-5.343 5.772-9.075 6.791-2.787-2.832-5.617-5.623-8.422-8.44-.565-.523-1.039-1.151-1.687-1.584q.165-.136.36-.23c1.782.038 3.567.033 5.35.01 2.766-.077 5.194-2.605 5.14-5.375.08-2.25-1.443-4.412-3.542-5.184-.8-.346-1.684-.351-2.54-.344-5.172.005-10.342-.001-15.513.004a.65.65 0 0 1-.536-.269"></path>
-							</svg>
-							<span>Zarrin</span>
-						</div>
+						<a href="index.html" class="header__link-logo" aria-label="Go to home page">
+							<div class="header__logo">
+								<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44" fill="none">
+									<path fill="#7c4ee4" d="M4.89 38.972C1.091 35.228-.69 29.532.38 24.298c1.06-5.878 5.625-11.002 11.39-12.617 2.823 2.864 5.682 5.689 8.517 8.537.584.563 1.12 1.177 1.75 1.69-2.01.02-4.023-.053-6.03.025-2.772.175-5.121 2.79-4.966 5.57-.026 2.807 2.49 5.343 5.298 5.326 5.522.013 11.044-.001 16.563.009 3.628 3.632 7.25 7.272 10.898 10.886-.564.107-1.136.078-1.705.073l-25.54.001c-4.318.011-8.631-1.74-11.667-4.826"></path>
+									<path fill="#7c4ee4" d="M10.758 10.713C7.168 7.148 3.633 3.523 0 0c8.499.033 16.996.005 25.495.016 1.426.019 2.867-.081 4.277.187a16.3 16.3 0 0 1 9.539 4.92c2.78 2.883 4.407 6.825 4.533 10.823a16.6 16.6 0 0 1-2.621 9.388c-2.1 3.223-5.343 5.772-9.075 6.791-2.787-2.832-5.617-5.623-8.422-8.44-.565-.523-1.039-1.151-1.687-1.584q.165-.136.36-.23c1.782.038 3.567.033 5.35.01 2.766-.077 5.194-2.605 5.14-5.375.08-2.25-1.443-4.412-3.542-5.184-.8-.346-1.684-.351-2.54-.344-5.172.005-10.342-.001-15.513.004a.65.65 0 0 1-.536-.269"></path>
+								</svg>
+								<span>Zarrin</span>
+							</div>
+						</a>
 						<div class="header__menu menu">
 							<nav class="menu__body">
 								<ul class="menu__list">
 									<li class="menu__item">
-										<a href="index.html" class="menu__link menu__link--active">Home</a>
+										<a href="index.html" class="menu__link">Home</a>
 									</li>
 									<li class="menu__item">
 										<a href="blog.html" class="menu__link">Blog</a>
 									</li>
 									<li class="menu__item">
-										<a href="about.html" class="menu__link">About</a>
+										<a href="about.html" class="menu__link menu__link--active">About</a>
 									</li>
 								</ul>
 							</nav>
@@ -48,9 +50,7 @@
 				</div>
 			</header>
 			<main class="page">
-				<section data-fls-index="" class="page__hero hero" aria-labelledby="hero-title" aria-describedby="hero-desc">
-					<div class="hero__container"></div>
-				</section>
+				<div data-fls-about="" class="about"></div>
 			</main>
 			<footer data-fls-footer="" class="footer">
 				<div class="footer__container"></div>
