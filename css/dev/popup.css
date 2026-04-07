@@ -573,7 +573,7 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     font-size: 0.875rem;
   }
   .button--600 {
-    padding-block: 0.75rem;
+    padding-block: 0.875rem;
   }
   .button--600 {
     padding-inline: 1.25rem;
@@ -610,7 +610,7 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     content: "";
     position: fixed;
     width: 100%;
-    height: 3.6rem;
+    height: 3.85rem;
     right: -100%;
     top: 0;
     transition: right 0.3s;
@@ -1004,7 +1004,7 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     font-size: clamp( 0.875rem , 0.75768793585625rem  +  0.307210224vw , 1rem );
   }
   .button--600 {
-    padding-block: clamp( 0.75rem , 0.51537587170625rem  +  0.6144204479vw , 1rem );
+    padding-block: clamp( 0.875rem , 0.75768793585625rem  +  0.307210224vw , 1rem );
   }
   .button--600 {
     padding-inline: clamp( 1.25rem , -0.3337128659625rem  +  4.1473380234vw , 2.9375rem );
