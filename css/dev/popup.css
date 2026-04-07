@@ -581,10 +581,10 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
 }
 @media (max-width: 38.18625em) and (width <= 20em){
   .menu__body {
-    padding-top: 4.375rem;
+    padding-top: 4.6875rem;
   }
   .menu__item {
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.875rem;
   }
 }
 @media (max-width: 38.18625em) and (any-hover: none){
@@ -1022,12 +1022,12 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
 }
 @media (max-width: 38.18625em) and (width > 20em) and (width <= 78.875em){
   .menu__item {
-    padding-bottom: clamp( 0.75rem , 0.58014861995625rem  +  0.8492569002vw , 1.25rem );
+    padding-bottom: clamp( 0.875rem , 0.74761146496875rem  +  0.6369426752vw , 1.25rem );
   }
 }
 @media (max-width: 38.18625em) and (width > 20em) and (width <= 38.18625em){
   .menu__body {
-    padding-top: clamp( 4.375rem , 3.000335074575rem  +  6.8733246271vw , 5.625rem );
+    padding-top: clamp( 4.6875rem , 3.65650130593125rem  +  5.1549934703vw , 5.625rem );
   }
 }
 @media (width > 47.99875em) and (width <= 61.99875em){
