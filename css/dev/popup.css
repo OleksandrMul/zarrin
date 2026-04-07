@@ -701,7 +701,7 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     gap: 0.3125rem;
   }
   .header__actions {
-    gap: 0.625rem;
+    gap: 0.5rem;
   }
   [data-fls-form-error] {
     margin-top: 0.5rem;
@@ -929,7 +929,7 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
 }
 @media (width > 20em) and (width <= 29.99875em){
   .header__actions {
-    gap: clamp( 0.625rem , -0.00007813476875rem  +  3.1253906738vw , 0.9375rem );
+    gap: clamp( 0.5rem , -0.375109388675rem  +  4.3755469434vw , 0.9375rem );
   }
   .popup--message [data-fls-popup-body] {
     padding-inline: clamp( 0.9375rem , -0.9377344043rem  +  9.3761720215vw , 1.875rem );
