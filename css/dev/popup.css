@@ -569,13 +569,13 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   .header__logo span {
     font-size: 1.25rem;
   }
-  .header__button {
+  .button--600 {
     font-size: 0.875rem;
   }
-  .header__button {
+  .button--600 {
     padding-block: 0.875rem;
   }
-  .header__button {
+  .button--600 {
     padding-inline: 1.25rem;
   }
 }
@@ -1000,13 +1000,13 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   .header__logo span {
     font-size: clamp( 1.25rem , 0.42881555098125rem  +  2.1504715677vw , 2.125rem );
   }
-  .header__button {
+  .button--600 {
     font-size: clamp( 0.875rem , 0.75768793585625rem  +  0.307210224vw , 1rem );
   }
-  .header__button {
+  .button--600 {
     padding-block: clamp( 0.875rem , 0.75768793585625rem  +  0.307210224vw , 1rem );
   }
-  .header__button {
+  .button--600 {
     padding-inline: clamp( 1.25rem , -0.3337128659625rem  +  4.1473380234vw , 2.9375rem );
   }
 }
@@ -1100,15 +1100,6 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   .header__logo span {
     font-size: 2.125rem;
   }
-  .header__button {
-    font-size: 1rem;
-  }
-  .header__button {
-    padding-block: 1rem;
-  }
-  .header__button {
-    padding-inline: 2.9375rem;
-  }
   [data-fls-form-error] {
     margin-top: 0.75rem;
   }
@@ -1129,6 +1120,15 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   }
   .button--14 {
     font-size: 0.875rem;
+  }
+  .button--600 {
+    font-size: 1rem;
+  }
+  .button--600 {
+    padding-block: 1rem;
+  }
+  .button--600 {
+    padding-inline: 2.9375rem;
   }
   .button--small {
     padding-block: 0.59375rem;
