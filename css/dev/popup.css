@@ -223,7 +223,7 @@ textarea {
   border: 0.0625rem solid var(--gray-c4);
   background-color: var(--white);
   width: 100%;
-  padding: 0.625rem;
+  padding: 0.9375rem;
   transition: border-color 0.3s ease;
   min-height: 3.375rem;
   display: block;
@@ -245,7 +245,7 @@ html:not([data-fls-touch]) .input:hover, html:not([data-fls-touch]) .input:focus
 
 textarea.input {
   resize: vertical;
-  padding: 0.625rem;
+  padding: 0.9375rem;
   min-height: 10.8125rem;
 }
 
@@ -569,15 +569,6 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   .header__logo span {
     font-size: 1.25rem;
   }
-  .button {
-    font-size: 0.875rem;
-  }
-  .button--600 {
-    padding-block: 0.875rem;
-  }
-  .button--600 {
-    padding-inline: 1.25rem;
-  }
 }
 @media (max-width: 38.18625em) and (width <= 20em){
   .menu__body {
@@ -668,6 +659,11 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     bottom: calc(50% - 0.0625rem);
     transform: rotate(45deg);
   }
+  .button--600 {
+    font-size: 0.875rem !important;
+    padding-block: 0.875rem !important;
+    padding-inline: 1.875rem !important;
+  }
 }
 @media (width <= 35.75em){
   .form__row {
@@ -691,6 +687,11 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   }
   .popup--message [data-fls-popup-body] {
     width: 100%;
+  }
+}
+@media (max-width: 23.43625em){
+  .button--600 {
+    padding-inline: 1.25rem !important;
   }
 }
 @media (width <= 20em){
@@ -723,6 +724,9 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   }
   .form__label:not(:last-child) {
     margin-bottom: 0.1875rem;
+  }
+  .button {
+    font-size: 0.875rem;
   }
   .button {
     padding-block: 0.75rem;
@@ -827,6 +831,9 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   }
   .form__label:not(:last-child) {
     margin-bottom: clamp( 0.1875rem , 0.081342887475rem  +  0.5307855626vw , 0.5rem );
+  }
+  .button {
+    font-size: clamp( 0.875rem , 0.8325371549875rem  +  0.2123142251vw , 1rem );
   }
   .button {
     padding-block: clamp( 0.75rem , 0.66507430998125rem  +  0.4246284501vw , 1rem );
@@ -993,17 +1000,6 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   }
   .header__logo span {
     font-size: clamp( 1.25rem , 0.42881555098125rem  +  2.1504715677vw , 2.125rem );
-  }
-  .button {
-    font-size: clamp( 0.875rem , 0.75768793585625rem  +  0.307210224vw , 1rem );
-  }
-}
-@media (width > 38.18625em) and (width <= 61.99875em){
-  .button--600 {
-    padding-block: clamp( 0.875rem , 0.67454724409375rem  +  0.5249343832vw , 1rem );
-  }
-  .button--600 {
-    padding-inline: clamp( 1.25rem , -1.456112204725rem  +  7.0866141732vw , 2.9375rem );
   }
 }
 @media (min-width: 38.18625em) and (width > 71.875em){
