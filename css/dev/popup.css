@@ -202,6 +202,7 @@ html:not([data-fls-touch]) .menu__link:hover::after {
 .footer {
   font-family: "Raleway", sans-serif;
   color: var(--black);
+  background-color: var(--white);
 }
 .footer__body {
   display: flex;
@@ -653,9 +654,6 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   }
 }
 @media (max-width: 47.99875em){
-  body {
-    line-height: 1.25;
-  }
   .title--64 {
     line-height: 1.2;
   }
@@ -928,7 +926,7 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     font-size: 1.25rem;
   }
   .title--64 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
   .title--52 {
     font-size: 1.5rem;
@@ -1064,7 +1062,7 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     font-size: clamp( 1.25rem , 0.65552016985rem  +  2.9723991507vw , 3rem );
   }
   .title--64 {
-    font-size: clamp( 2.25rem , 1.65552016985rem  +  2.9723991507vw , 4rem );
+    font-size: clamp( 2rem , 1.32059447983125rem  +  3.3970276008vw , 4rem );
   }
   .title--52 {
     font-size: clamp( 1.5rem , 0.90552016985rem  +  2.9723991507vw , 3.25rem );
