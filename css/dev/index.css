@@ -2,8 +2,24 @@
 
 .hero {
   background-color: var(--purple);
+  position: relative;
+}
+.hero__decor-top, .hero__decor-bottom {
+  position: absolute;
+  max-width: 100%;
+  object-fit: cover;
+}
+.hero__decor-top {
+  top: -28.515982%; /* 206/876 */
+  left: -5.833333%; /* 84/1440 */
+}
+.hero__decor-bottom {
+  bottom: -15.753425%; /* 138/876 */
+  right: -20.680556%; /* 269/1440 */
 }
 .hero__container {
+  position: relative;
+  z-index: 3;
   display: flex;
   align-items: flex-start;
   column-gap: 1.25rem;
@@ -44,6 +60,18 @@
   .page__hero {
     padding-bottom: 4.6875rem;
   }
+  .hero__decor-top {
+    width: 25rem;
+  }
+  .hero__decor-top {
+    height: 15.625rem;
+  }
+  .hero__decor-bottom {
+    width: 31.25rem;
+  }
+  .hero__decor-bottom {
+    height: 15.625rem;
+  }
   .hero__blockhead {
     padding-top: 6.25e-8rem;
   }
@@ -60,6 +88,9 @@
   }
 }
 @media (max-width: 55.81125em) {
+  .hero__decor-top, .hero__decor-bottom {
+    display: none;
+  }
   .hero__container {
     flex-direction: column;
     text-align: center;
@@ -153,10 +184,22 @@
 }
 @media (width > 55.81125em) and (width <= 78.875em) {
   .page__hero {
-    padding-top: clamp( 4.6875rem , -6.655635195925rem  +  20.3241016747vw , 9.375rem );
+    padding-top: clamp( 4.6875rem , -2.11838111755625rem  +  12.1944610048vw , 7.5rem );
   }
   .page__hero {
-    padding-bottom: clamp( 4.6875rem , -6.655635195925rem  +  20.3241016747vw , 9.375rem );
+    padding-bottom: clamp( 4.6875rem , 0.90645493469375rem  +  6.7747005582vw , 6.25rem );
+  }
+  .hero__decor-top {
+    width: clamp( 25rem , -18.1039137445125rem  +  77.2315863639vw , 42.8125rem );
+  }
+  .hero__decor-top {
+    height: clamp( 15.625rem , -3.733950734375rem  +  34.6864668582vw , 23.625rem );
+  }
+  .hero__decor-bottom {
+    width: clamp( 31.25rem , -10.6439793236125rem  +  75.0636821852vw , 48.5625rem );
+  }
+  .hero__decor-bottom {
+    height: clamp( 15.625rem , -3.733950734375rem  +  34.6864668582vw , 23.625rem );
   }
   .hero__blockhead {
     padding-top: clamp( 6.25e-8rem , -2.11738502283125rem  +  3.7938320416vw , 0.875rem );
@@ -175,10 +218,22 @@
 }
 @media (width > 78.875em) {
   .page__hero {
-    padding-top: 9.375rem;
+    padding-top: 7.5rem;
   }
   .page__hero {
-    padding-bottom: 9.375rem;
+    padding-bottom: 6.25rem;
+  }
+  .hero__decor-top {
+    width: 42.8125rem;
+  }
+  .hero__decor-top {
+    height: 23.625rem;
+  }
+  .hero__decor-bottom {
+    width: 48.5625rem;
+  }
+  .hero__decor-bottom {
+    height: 23.625rem;
   }
   .hero__blockhead {
     padding-top: 0.875rem;
