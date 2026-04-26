@@ -392,8 +392,8 @@ html:not([data-fls-touch]) .button--white:hover, html:not([data-fls-touch]) .but
   color: var(--white);
 }
 .button--link {
-  padding-inline: 0;
-  padding-block: 0;
+  padding-inline: 0rem !important;
+  padding-block: 0rem !important;
   background-color: transparent;
   border: none;
   color: #7c4ee4;
