@@ -381,7 +381,7 @@ html:not([data-fls-touch]) .info-card__category:hover, html:not([data-fls-touch]
     padding-bottom: 1.5625rem;
   }
   .card-item--top .card-item__body {
-    gap: 0.75rem;
+    gap: 1.125rem;
   }
   .card-item__content {
     gap: 0.625rem;
@@ -456,7 +456,7 @@ html:not([data-fls-touch]) .info-card__category:hover, html:not([data-fls-touch]
     padding-bottom: clamp( 1.5625rem , 1.2015658174125rem  +  1.804670913vw , 2.625rem );
   }
   .card-item--top .card-item__body {
-    gap: clamp( 0.75rem , 0.261677282375rem  +  2.4416135881vw , 2.1875rem );
+    gap: clamp( 1.125rem , 0.7640658174125rem  +  1.804670913vw , 2.1875rem );
   }
   .card-item__content {
     gap: clamp( 0.625rem , 0.49761146496875rem  +  0.6369426752vw , 1rem );
