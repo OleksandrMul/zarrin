@@ -547,3 +547,50 @@ function formInit() {
   formFieldsInit();
 }
 document.querySelector("[data-fls-form]") ? window.addEventListener("load", formInit) : null;
+function searchBarInit() {
+  const searchToggle = document.querySelector("[data-fls-search]");
+  const searchBar = document.querySelector("[data-fls-searchbar]");
+  const searchInput = searchBar?.querySelector("input");
+  if (!searchToggle || !searchBar) return;
+  const focusableEls = searchBar.querySelectorAll("input, button");
+  function openSearch() {
+    searchBar.setAttribute("data-fls-search-bar-open", "");
+    searchBar.setAttribute("aria-hidden", "false");
+    searchToggle.setAttribute("aria-expanded", "true");
+    searchToggle.setAttribute("aria-label", "Close search");
+    focusableEls.forEach((el) => el.removeAttribute("tabindex"));
+    setTimeout(() => searchInput?.focus(), 50);
+  }
+  function closeSearch() {
+    searchBar.removeAttribute("data-fls-search-bar-open");
+    searchBar.setAttribute("aria-hidden", "true");
+    searchToggle.setAttribute("aria-expanded", "false");
+    searchToggle.setAttribute("aria-label", "Open search");
+    searchInput.value = "";
+    focusableEls.forEach((el) => el.setAttribute("tabindex", "-1"));
+  }
+  function isOpen() {
+    return searchBar.hasAttribute("data-fls-search-bar-open");
+  }
+  searchBar.addEventListener("submit", (e) => {
+    if (!searchInput.value.trim()) {
+      e.preventDefault();
+      searchInput.focus();
+    }
+  });
+  searchToggle.addEventListener("click", () => {
+    isOpen() ? closeSearch() : openSearch();
+  });
+  document.addEventListener("click", (e) => {
+    if (isOpen() && !e.target.closest("[data-fls-searchbar]") && !e.target.closest("[data-fls-search]")) {
+      closeSearch();
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen()) {
+      closeSearch();
+      searchToggle.focus();
+    }
+  });
+}
+document.querySelector("[data-fls-search]") ? window.addEventListener("load", searchBarInit) : null;
