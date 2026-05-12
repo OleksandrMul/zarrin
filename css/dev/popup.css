@@ -1004,20 +1004,20 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     right: 0.625rem;
     transform: translateY(-50%);
     border-radius: 50%;
-    padding: 0;
-    width: 3.375rem;
-    aspect-ratio: 1;
+    padding: 0 !important;
+    width: 3.375rem !important;
+    aspect-ratio: 1 !important;
   }
   .search-bar__button span {
     display: none;
   }
   .search-bar__button svg {
-    display: block;
-    width: 1.375rem;
-    height: 1.375rem;
+    display: block !important;
+    width: 1.375rem !important;
+    height: 1.375rem !important;
   }
   .search-bar__button svg path {
-    fill: var(--white);
+    fill: var(--white) !important;
   }
   .popup--message [data-fls-popup-body] {
     width: 100%;
