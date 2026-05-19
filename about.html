@@ -5,10 +5,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>About</title>
-		<link rel="modulepreload" crossorigin href="./js/common.min.js?v=1778611517694">
-		<script type="module" crossorigin="" src="./js/popup.min.js?v=1778611517694"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1778611517694">
-		<link rel="stylesheet" crossorigin="" href="./css/error.min.css?v=1778611517694">
+		<link rel="modulepreload" crossorigin href="./js/common.min.js?v=1779218057098">
+		<script type="module" crossorigin="" src="./js/popup.min.js?v=1779218057098"></script>
+		<script type="module" crossorigin="" src="./js/blockhead.min.js?v=1779218057098"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1779218057098">
+		<link rel="stylesheet" crossorigin="" href="./css/blockhead.min.css?v=1779218057098">
+		<link rel="stylesheet" crossorigin="" href="./css/about.min.css?v=1779218057098">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -67,7 +69,94 @@
 				</div>
 			</header>
 			<main class="page">
-				<div data-fls-about="" class="about"></div>
+				<section data-fls-about="" class="page__about about" aria-labelledby="about-title" aria-describedby="about-desc">
+					<div class="about__container">
+						<div data-fls-blockhead="" class="about__blockhead blockhead blockhead--text-center">
+							<div class="blockhead__content">
+								<span class="blockhead__label blockhead__label--upper-case">ABOUT Us</span>
+								<h1 id="about-title" data-fls-title="" class="blockhead__title title">
+									Creative Blog Writing and
+									<br>
+									publishing site
+								</h1>
+								<div id="about-desc" class="blockhead__text blockhead__text--1010">
+									<p>
+										our blogs are written from very research research and well known writers writers so that  we can provide you the best blogs and articles articles for you to read them all along.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="about__image">
+							<picture>
+								<source media="(max-width: 600px)" srcset="./assets/img/about/office-teamwork-600.avif" type="image/avif">
+								<source media="(max-width: 1200px)" srcset="./assets/img/about/office-teamwork-1200.avif" type="image/avif">
+								<img alt="Office teamwork with individuals focused on a shared laptop screen." src="./assets/img/about/office-teamwork.avif">
+							</picture>
+						</div>
+					</div>
+				</section>
+				<section data-fls-about="" class="page__team-work team-work" aria-labelledby="team-work-title" aria-describedby="team-work-desc">
+					<div class="team-work__container">
+						<div data-fls-blockhead="" class="team-work__blockhead blockhead">
+							<div class="blockhead__content">
+								<div class="blockhead__inner">
+									<span class="blockhead__label blockhead__label--upper-case">HOW we WORK</span>
+									<h2 id="team-work-title" data-fls-title="" class="blockhead__title title">I will show you how our team works</h2>
+								</div>
+								<div id="team-work-desc" class="blockhead__text blockhead__text--416">
+									<p>Bring to the table win-win market strategies to ensure perfect articles.</p>
+								</div>
+							</div>
+						</div>
+						<ul class="team-work__list">
+							<li class="team-work__item item-team-work">
+								<a href="#" class="item-team-work__link">
+									<div class="item-team-work__content">
+										<h3 class="item-team-work__title">Brainstorming</h3>
+										<div class="item-team-work__text">
+											<p>
+												Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated.
+											</p>
+										</div>
+										<div class="item-team-work__actions">
+											<span>Learn More</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="team-work__item item-team-work">
+								<a href="#" class="item-team-work__link">
+									<div class="item-team-work__content">
+										<h3 class="item-team-work__title">Analysing</h3>
+										<div class="item-team-work__text">
+											<p>
+												Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line solely on the bottom line.
+											</p>
+										</div>
+										<div class="item-team-work__actions">
+											<span>Learn More</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="team-work__item item-team-work">
+								<a href="#" class="item-team-work__link">
+									<div class="item-team-work__content">
+										<h3 class="item-team-work__title">News Publishing</h3>
+										<div class="item-team-work__text">
+											<p>
+												Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+											</p>
+										</div>
+										<div class="item-team-work__actions">
+											<span>Learn More</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
 			</main>
 			<section data-fls-subscribe="" class="subscribe" aria-labelledby="subscribe-title" aria-describedby="subscribe-desc">
 				<div class="subscribe__container">
