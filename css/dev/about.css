@@ -26,6 +26,7 @@
 .team-work__list {
   counter-reset: item;
 }
+
 .item-team-work {
   position: relative;
   border-radius: 1rem;

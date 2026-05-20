@@ -119,6 +119,8 @@ address {
   --white-27: rgba(255, 255, 255, 0.27);
   --error: #800e0e;
   --percent: 92;
+  --radius: 1rem;
+  --gray-7a: #7a7a7a;
 }
 body {
   min-width: 20rem;
