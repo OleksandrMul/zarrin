@@ -278,6 +278,7 @@ html:not([data-fls-touch]) .footer__link:hover::after {
   row-gap: 0.3125rem;
 }
 .social__link {
+  padding-top: 0.125rem;
   width: 2.5rem;
   height: 2.5rem;
   background-color: var(--purple);
