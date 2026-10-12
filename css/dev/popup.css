@@ -122,6 +122,35 @@ address {
   --radius: 1rem;
   --gray-7a: #7a7a7a;
   --border-radius: 1rem;
+  --spring-bounce: cubic-bezier(0.22, 1, 0.36, 1);
+  --spring-bounce-2: linear(
+  	0,
+  	0.001 0.3%,
+  	0.006 0.7%,
+  	0.023 1.4%,
+  	0.053 2.2%,
+  	0.091 3%,
+  	0.185 4.6%,
+  	0.431 8.3%,
+  	0.549 10.2%,
+  	0.658 12.2%,
+  	0.749 14.2%,
+  	0.826 16.3%,
+  	0.859 17.4%,
+  	0.889 18.6%,
+  	0.915 19.8%,
+  	0.936 21%,
+  	0.955 22.3%,
+  	0.971 23.7%,
+  	0.987 25.7%,
+  	0.999 27.9%,
+  	1.006 30.4%,
+  	1.009 33.4%,
+  	1.009 36.7%,
+  	1.003 47.9%,
+  	1 56.4%,
+  	1
+  );
 }
 body {
   min-width: 20rem;
@@ -163,7 +192,7 @@ body {
   font-weight: 500;
   line-height: 1.5;
   position: relative;
-  transition: color 0.3s ease 0s;
+  transition: color 0.3s var(--spring-bounce) 0s;
 }
 .menu__link::after {
   content: "";
@@ -173,7 +202,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transition: width 0.3s, left 0.3s;
+  transition: width 0.3s var(--spring-bounce), left 0.3s var(--spring-bounce);
 }
 html:not([data-fls-touch]) .menu__link:hover {
   color: var(--purple);
@@ -390,7 +419,7 @@ textarea.input {
   border-radius: 0.5rem;
   background-color: var(--purple);
   border: 0.0625rem solid var(--purple);
-  transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+  transition: color 0.3s var(--spring-bounce) 0s, background-color 0.3s var(--spring-bounce) 0s;
 }
 html:not([data-fls-touch]) .button:hover, html:not([data-fls-touch]) .button:focus-visible {
   background-color: transparent;
@@ -559,7 +588,7 @@ html:not([data-fls-touch]) .form-subscribe__input:hover, html:not([data-fls-touc
   border: 0.0625rem solid var(--gray-light);
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  transition: opacity 0.3s var(--spring-bounce), visibility 0s linear 0.3s;
 }
 .search-bar[data-fls-search-bar-open] {
   opacity: 1;
@@ -602,7 +631,7 @@ html:not([data-fls-touch]) .search:hover .search__icon::after, html:not([data-fl
   background: var(--darkGray);
   border-radius: 0.0625rem;
   will-change: transform, width, height, top, left, border-color, border-radius;
-  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease, border-color 0.3s ease, background 0.3s ease, border-radius 0.3s ease;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease, border-color 0.3s var(--spring-bounce), background 0.3s var(--spring-bounce), border-radius 0.3s var(--spring-bounce);
 }
 .search__icon::before {
   width: 1.375rem;
@@ -672,7 +701,7 @@ body::after {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: opacity 0.8s ease 0s;
+  transition: opacity 0.6s var(--spring-bounce) 0s;
   pointer-events: none;
   z-index: 149;
 }
@@ -702,7 +731,7 @@ body::after {
 
 [data-fls-popup-active] [data-fls-popup-body] {
   visibility: visible;
-  transform: scale(1);
+  opacity: 1;
 }
 
 [data-fls-popup-wrapper] {
@@ -719,8 +748,8 @@ body::after {
 
 [data-fls-popup-body] {
   visibility: hidden;
-  transform: scale(0);
-  transition: transform 0.3s ease 0s, visibility 0.3s ease 0s;
+  opacity: 0;
+  transition: opacity 0.6s var(--spring-bounce) 0s, visibility 0.6s var(--spring-bounce) 0s;
   background-color: var(--white);
 }
 [data-fls-popup-body] {
@@ -737,6 +766,9 @@ body::after {
   place-items: center;
 }
 
+.popup {
+  z-index: 3;
+}
 .popup__text {
   text-align: center;
 }
@@ -750,7 +782,7 @@ body::after {
   justify-content: center;
 }
 .popup__close {
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s var(--spring-bounce);
   border: 0.0625rem solid var(--purple);
   border-radius: 50%;
 }
@@ -761,7 +793,7 @@ body::after {
 .popup__close path {
   stroke: var(--purple);
   stroke-width: 0.0625rem;
-  transition: stroke 0.3s ease;
+  transition: stroke 0.3s var(--spring-bounce);
 }
 html:not([data-fls-touch]) .popup__close:hover, html:not([data-fls-touch]) .popup__close:focus-visible {
   background-color: var(--purple);
@@ -822,6 +854,12 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
 @media (max-width: 55.81125em){
   .subscribe__decor-top, .subscribe__decor-bottom {
     display: none;
+  }
+  body::after {
+    transition: opacity 0.4s var(--spring-bounce) 0s;
+  }
+  [data-fls-popup-body] {
+    transition: opacity 0.4s var(--spring-bounce) 0s, visibility 0.5s var(--spring-bounce) 0s;
   }
 }
 @media (width <= 47.99875em){
@@ -1352,7 +1390,7 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
 }
 @media (min-width: 23.43625em){
   .search {
-    transition: background-color 0.3s ease 0s;
+    transition: background-color 0.3s var(--spring-bounce) 0s;
     border-radius: 50%;
   }
 }
