@@ -25,6 +25,7 @@
   column-gap: 1.25rem;
 }
 .hero__blockhead .blockhead__label {
+  will-change: translate;
   opacity: 0;
   translate: 0 10%;
 }
@@ -42,6 +43,7 @@
   }
 }
 .hero__blockhead .blockhead__title {
+  will-change: translate;
   opacity: 0;
   translate: 0 3%;
 }
@@ -145,7 +147,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.8s 0.3s;
+  transition: all 0.3s 0s;
+  color: var(--purple);
+  background-color: var(--white);
 }
 
 /* Блок з елементами */
@@ -158,16 +162,8 @@
 
 /* Блок з лічильником */
 .fls-preloader__counter {
+  font-variant-numeric: tabular-nums;
   font-size: 10rem;
-}
-
-/* Прогресбар */
-/* Лінія прогресбару */
-.fls-preloader__line span {
-  display: inline-block;
-  transition: width 0.2s ease;
-  height: 0.8rem;
-  background-color: #7a956b;
 }
 
 [data-fls-preloader-loaded] .fls-preloader {
@@ -308,6 +304,15 @@
   }
   .hero__media {
     margin-inline: -0.9375rem;
+  }
+  .fls-preloader__counter {
+    font-size: 8rem;
+  }
+}
+
+@media (max-width: 20.06125em){
+  .fls-preloader__counter {
+    font-size: 7rem;
   }
 }
 

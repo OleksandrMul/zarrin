@@ -23,7 +23,6 @@ function preloader() {
 			<div class="fls-preloader">
 				<div class="fls-preloader__body">
 					<div class="fls-preloader__counter">0%</div>
-					<div class="fls-preloader__line"><span></span></div>
 				</div>
 			</div>`;
     document.body.insertAdjacentHTML("beforeend", preloaderTemplate);

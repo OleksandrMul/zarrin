@@ -62,6 +62,9 @@ let bodyLock = (delay = 500) => {
     }, delay);
   }
 };
+function uniqArray(array) {
+  return array.filter((item, index, self) => self.indexOf(item) === index);
+}
 const gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
   const targetBlockElement = document.querySelector(targetBlock);
   if (targetBlockElement) {
@@ -102,5 +105,6 @@ export {
   bodyLock as b,
   bodyLockStatus as c,
   bodyLockToggle as d,
-  gotoBlock as g
+  gotoBlock as g,
+  uniqArray as u
 };
