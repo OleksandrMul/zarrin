@@ -98,6 +98,23 @@ const gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) =>
     });
   }
 };
+function attachBoop(triggerNode, applyBoop, removeBoop, boopDuration = 150) {
+  triggerNode.addEventListener("mouseenter", () => {
+    const prefersReducedMotion = checkPrefersReducedMotion();
+    if (prefersReducedMotion) {
+      return;
+    }
+    applyBoop();
+    window.setTimeout(() => {
+      removeBoop();
+    }, boopDuration);
+  });
+}
+function checkPrefersReducedMotion() {
+  return !window.matchMedia(
+    "(prefers-reduced-motion: no-preference)"
+  ).matches;
+}
 addTouchAttr();
 addLoadedAttr();
 export {
@@ -105,6 +122,8 @@ export {
   bodyLock as b,
   bodyLockStatus as c,
   bodyLockToggle as d,
+  attachBoop as e,
   gotoBlock as g,
+  isMobile as i,
   uniqArray as u
 };

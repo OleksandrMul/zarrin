@@ -8,17 +8,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Home</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1791888421466"></script>
-		<link rel="modulepreload" crossorigin="" href="./js/common.min.js?v=1791888421466">
-		<link rel="modulepreload" crossorigin="" href="./js/popup.min.js?v=1791888421466">
-		<link rel="modulepreload" crossorigin="" href="./js/popularpost.min.js?v=1791888421466">
-		<link rel="modulepreload" crossorigin="" href="./js/carditem.min.js?v=1791888421466">
-		<link rel="modulepreload" crossorigin="" href="./js/blockhead.min.js?v=1791888421466">
-		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1791888421466">
-		<link rel="stylesheet" crossorigin="" href="./css/popularpost.min.css?v=1791888421466">
-		<link rel="stylesheet" crossorigin="" href="./css/carditem.min.css?v=1791888421466">
-		<link rel="stylesheet" crossorigin="" href="./css/blockhead.min.css?v=1791888421466">
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1791888421466">
+		<link rel="modulepreload" crossorigin href="./js/common.min.js?v=1791972905531">
+		<script type="module" crossorigin="" src="./js/popup.min.js?v=1791972905531"></script>
+		<script type="module" crossorigin="" src="./js/popularpost.min.js?v=1791972905531"></script>
+		<script type="module" crossorigin="" src="./js/carditem.min.js?v=1791972905531"></script>
+		<script type="module" crossorigin="" src="./js/blockhead.min.js?v=1791972905531"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1791972905531">
+		<link rel="stylesheet" crossorigin="" href="./css/popularpost.min.css?v=1791972905531">
+		<link rel="stylesheet" crossorigin="" href="./css/carditem.min.css?v=1791972905531">
+		<link rel="stylesheet" crossorigin="" href="./css/blockhead.min.css?v=1791972905531">
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1791972905531">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -48,8 +47,8 @@
 							</nav>
 						</div>
 						<div class="header__actions">
-							<button data-fls-search="" type="button" class="header__search search" aria-expanded="false" aria-controls="site-search" aria-label="Open search">
-								<span class="search__icon" aria-hidden="true"></span>
+							<button data-fls-boop="" data-fls-search="" type="button" class="header__search search" aria-expanded="false" aria-controls="site-search" aria-label="Open search">
+								<span class="search__icon boop-target" aria-hidden="true"></span>
 							</button>
 							<button type="button" data-fls-button="" class="header__button button button--600" data-fls-popup-link="popup">Contact Us</button>
 							<button type="button" data-fls-menu="" class="header__icon-menu" aria-label="Menu">
@@ -716,16 +715,24 @@
 						</ul>
 						<ul class="footer__social social">
 							<li class="social__item">
-								<a href="https://www.facebook.com/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in new tab)">FB</a>
-							</li>
-							<li>
-								<a href="https://www.instagram.com/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">IG</a>
-							</li>
-							<li class="social__item">
-								<a href="https://www.linkedin.com/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LN</a>
+								<a data-fls-boop="" href="https://www.facebook.com/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in new tab)">
+									<span class="boop-target">FB</span>
+								</a>
 							</li>
 							<li class="social__item">
-								<a href="https://www.youtube.com/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Youtube (opens in new tab)">YT</a>
+								<a data-fls-boop="" href="https://www.instagram.com/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">
+									<span class="boop-target">IG</span>
+								</a>
+							</li>
+							<li class="social__item">
+								<a data-fls-boop="" href="https://www.linkedin.com/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">
+									<span class="boop-target">LN</span>
+								</a>
+							</li>
+							<li class="social__item">
+								<a data-fls-boop="" href="https://www.youtube.com/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="Youtube (opens in new tab)">
+									<span class="boop-target">YT</span>
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -740,11 +747,12 @@
 				<div data-fls-popup-body="" class="popup__body">
 					<div class="popup__head">
 						<h2 data-fls-title="" class="popup__title title">Contact US</h2>
-						<button data-fls-popup-close="" type="button" class="popup__close">
-							<svg width="23" height="23" viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<button data-fls-popup-close="" data-fls-boop="" type="button" class="popup__close">
+							<svg class="boop-target" width="23" height="23" viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square"></path>
 								<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square"></path>
 							</svg>
+							<span class="visually-hidden">Dismiss</span>
 						</button>
 					</div>
 					<div data-fls-popup-content="" class="popup__form">

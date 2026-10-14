@@ -1,4 +1,4 @@
-import { b as bodyLock, a as bodyUnlock, c as bodyLockStatus, d as bodyLockToggle, g as gotoBlock, u as uniqArray } from "./common.min.js";
+import { b as bodyLock, a as bodyUnlock, c as bodyLockStatus, d as bodyLockToggle, g as gotoBlock, u as uniqArray, i as isMobile, e as attachBoop } from "./common.min.js";
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -665,6 +665,57 @@ class ScrollWatcher {
   }
 }
 document.querySelector("[data-fls-watcher]") ? window.addEventListener("load", () => new ScrollWatcher({})) : null;
+function preloader() {
+  const preloaderImages = document.querySelectorAll("img");
+  const htmlDocument = document.documentElement;
+  const isPreloaded = localStorage.getItem(location.href) && document.querySelector('[data-fls-preloader="true"]');
+  if (preloaderImages.length && !isPreloaded) {
+    let setValueProgress = function(progress2) {
+      showPecentLoad ? showPecentLoad.innerText = `${progress2}%` : null;
+      showLineLoad ? showLineLoad.style.width = `${progress2}%` : null;
+    }, imageLoaded = function() {
+      imagesLoadedCount++;
+      progress = Math.round(100 / preloaderImages.length * imagesLoadedCount);
+      const intervalId = setInterval(() => {
+        counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
+        counter >= 100 ? addLoadedClass() : null;
+      }, 10);
+    };
+    const preloaderTemplate = `
+			<div class="fls-preloader">
+				<div class="fls-preloader__body">
+					<div class="fls-preloader__counter">0%</div>
+				</div>
+			</div>`;
+    document.body.insertAdjacentHTML("beforeend", preloaderTemplate);
+    document.querySelector(".fls-preloader");
+    const showPecentLoad = document.querySelector(".fls-preloader__counter"), showLineLoad = document.querySelector(".fls-preloader__line span");
+    let imagesLoadedCount = 0;
+    let counter = 0;
+    let progress = 0;
+    htmlDocument.setAttribute("data-fls-preloader-loading", "");
+    htmlDocument.setAttribute("data-fls-scrolllock", "");
+    preloaderImages.forEach((preloaderImage) => {
+      const imgClone = document.createElement("img");
+      if (imgClone) {
+        imgClone.onload = imageLoaded;
+        imgClone.onerror = imageLoaded;
+        preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
+      }
+    });
+    setValueProgress(progress);
+    const preloaderOnce = () => localStorage.setItem(location.href, "preloaded");
+    document.querySelector('[data-fls-preloader="true"]') ? preloaderOnce() : null;
+  } else {
+    addLoadedClass();
+  }
+  function addLoadedClass() {
+    htmlDocument.setAttribute("data-fls-preloader-loaded", "");
+    htmlDocument.removeAttribute("data-fls-preloader-loading");
+    htmlDocument.removeAttribute("data-fls-scrolllock");
+  }
+}
+document.addEventListener("DOMContentLoaded", preloader);
 function searchBarInit() {
   const searchToggle = document.querySelector("[data-fls-search]");
   const searchBar = document.querySelector("[data-fls-searchbar]");
@@ -712,3 +763,14 @@ function searchBarInit() {
   });
 }
 document.querySelector("[data-fls-search]") ? window.addEventListener("load", searchBarInit) : null;
+const triggers = document.querySelectorAll("[data-fls-boop]");
+if (!isMobile.any()) {
+  triggers.forEach((trigger) => {
+    const boopTarget = trigger.querySelector(".boop-target");
+    attachBoop(
+      trigger,
+      () => boopTarget.classList.add("is-booped"),
+      () => boopTarget.classList.remove("is-booped")
+    );
+  });
+}
