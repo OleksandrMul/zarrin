@@ -31,6 +31,24 @@
 .error-page__title {
   z-index: 2;
 }
+.error-page__title {
+  will-change: translate;
+  opacity: 0;
+  translate: 0 3%;
+}
+[data-fls-preloader-loaded] .error-page__title {
+  animation: show-error-title 0.5s var(--spring-bounce) forwards 0.2s;
+}
+@keyframes show-error-title {
+  0% {
+    opacity: 0;
+    translate: 0 3%;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
 .error-page__text {
   z-index: 2;
 }
@@ -43,8 +61,44 @@
 .error-page__text:not(:last-child) {
   margin-block-end: 0.625rem;
 }
+.error-page__text {
+  will-change: translate;
+  opacity: 0;
+  translate: 0 5%;
+}
+[data-fls-preloader-loaded] .error-page__text {
+  animation: show-hero-text 0.5s var(--spring-bounce) forwards 0.25s;
+}
+@keyframes show-hero-text {
+  0% {
+    opacity: 0;
+    translate: 0 5%;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
 .error-page__button {
   z-index: 2;
+}
+.error-page__button {
+  will-change: translate;
+  opacity: 0;
+  translate: 0 5%;
+}
+[data-fls-preloader-loaded] .error-page__button {
+  animation: show-hero-button 0.5s var(--spring-bounce) forwards 0.3s;
+}
+@keyframes show-hero-button {
+  0% {
+    opacity: 0;
+    translate: 0 5%;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 @media (width <= 55.81125em) {
   .page__error-page {
@@ -52,6 +106,45 @@
   }
   .page__error-page {
     padding-bottom: 4.6875rem;
+  }
+}
+@media (max-width: 55.81125em) {
+  [data-fls-preloader-loaded] .error-page__title {
+    animation: show-error-title 0.4s var(--spring-bounce-2) forwards 0.2s;
+  }
+  .error-page__text {
+    opacity: 0;
+    translate: 0 3%;
+  }
+  [data-fls-preloader-loaded] .error-page__text {
+    animation: show-hero-text 0.4s var(--spring-bounce-2) forwards 0.25s;
+  }
+  @keyframes show-hero-text {
+    0% {
+      opacity: 0;
+      translate: 0 3%;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+  .error-page__button {
+    opacity: 0;
+    translate: 0 3%;
+  }
+  [data-fls-preloader-loaded] .error-page__button {
+    animation: show-hero-button 0.4s var(--spring-bounce-2) forwards 0.3s;
+  }
+  @keyframes show-hero-button {
+    0% {
+      opacity: 0;
+      translate: 0 3%;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
   }
 }
 @media (width <= 29.99875em) {
