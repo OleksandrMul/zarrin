@@ -665,55 +665,97 @@ class ScrollWatcher {
   }
 }
 document.querySelector("[data-fls-watcher]") ? window.addEventListener("load", () => new ScrollWatcher({})) : null;
+const MIN_SHOW_TIME = 400;
+const MAX_WAIT = 1e4;
+const FADE_TIME = 300;
+const SPEED = 1.5;
+const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" fill="none"><path class="logo-path" pathLength="100" d="M4.89 38.972C1.091 35.228-.69 29.532.38 24.298c1.06-5.878 5.625-11.002 11.39-12.617 2.823 2.864 5.682 5.689 8.517 8.537.584.563 1.12 1.177 1.75 1.69-2.01.02-4.023-.053-6.03.025-2.772.175-5.121 2.79-4.966 5.57-.026 2.807 2.49 5.343 5.298 5.326 5.522.013 11.044-.001 16.563.009 3.628 3.632 7.25 7.272 10.898 10.886-.564.107-1.136.078-1.705.073l-25.54.001c-4.318.011-8.631-1.74-11.667-4.826"/><path class="logo-path" pathLength="100" d="M10.758 10.713C7.168 7.148 3.633 3.523 0 0c8.499.033 16.996.005 25.495.016 1.426.019 2.867-.081 4.277.187a16.3 16.3 0 0 1 9.539 4.92c2.78 2.883 4.407 6.825 4.533 10.823a16.6 16.6 0 0 1-2.621 9.388c-2.1 3.223-5.343 5.772-9.075 6.791-2.787-2.832-5.617-5.623-8.422-8.44-.565-.523-1.039-1.151-1.687-1.584q.165-.136.36-.23c1.782.038 3.567.033 5.35.01 2.766-.077 5.194-2.605 5.14-5.375.08-2.25-1.443-4.412-3.542-5.184-.8-.346-1.684-.351-2.54-.344-5.172.005-10.342-.001-15.513.004a.65.65 0 0 1-.536-.269"/></svg>`;
+const storage = {
+  get: (key) => {
+    try {
+      return localStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  },
+  set: (key, value) => {
+    try {
+      localStorage.setItem(key, value);
+    } catch {
+    }
+  }
+};
 function preloader() {
-  const preloaderImages = document.querySelectorAll("img");
-  const htmlDocument = document.documentElement;
-  const isPreloaded = localStorage.getItem(location.href) && document.querySelector('[data-fls-preloader="true"]');
-  if (preloaderImages.length && !isPreloaded) {
-    let setValueProgress = function(progress2) {
-      showPecentLoad ? showPecentLoad.innerText = `${progress2}%` : null;
-      showLineLoad ? showLineLoad.style.width = `${progress2}%` : null;
-    }, imageLoaded = function() {
-      imagesLoadedCount++;
-      progress = Math.round(100 / preloaderImages.length * imagesLoadedCount);
-      const intervalId = setInterval(() => {
-        counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
-        counter >= 100 ? addLoadedClass() : null;
-      }, 10);
-    };
-    const preloaderTemplate = `
-			<div class="fls-preloader">
-				<div class="fls-preloader__body">
-					<div class="fls-preloader__counter">0%</div>
-				</div>
-			</div>`;
-    document.body.insertAdjacentHTML("beforeend", preloaderTemplate);
-    document.querySelector(".fls-preloader");
-    const showPecentLoad = document.querySelector(".fls-preloader__counter"), showLineLoad = document.querySelector(".fls-preloader__line span");
-    let imagesLoadedCount = 0;
-    let counter = 0;
-    let progress = 0;
-    htmlDocument.setAttribute("data-fls-preloader-loading", "");
-    htmlDocument.setAttribute("data-fls-scrolllock", "");
-    preloaderImages.forEach((preloaderImage) => {
-      const imgClone = document.createElement("img");
-      if (imgClone) {
-        imgClone.onload = imageLoaded;
-        imgClone.onerror = imageLoaded;
-        preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
-      }
-    });
-    setValueProgress(progress);
-    const preloaderOnce = () => localStorage.setItem(location.href, "preloaded");
-    document.querySelector('[data-fls-preloader="true"]') ? preloaderOnce() : null;
-  } else {
-    addLoadedClass();
+  const html = document.documentElement;
+  const images = [...document.querySelectorAll("img")];
+  const onceMode = !!document.querySelector('[data-fls-preloader="true"]');
+  const isPreloaded = onceMode && storage.get(location.href);
+  if (!images.length || isPreloaded) {
+    finish(null);
+    return;
   }
-  function addLoadedClass() {
-    htmlDocument.setAttribute("data-fls-preloader-loaded", "");
-    htmlDocument.removeAttribute("data-fls-preloader-loading");
-    htmlDocument.removeAttribute("data-fls-scrolllock");
+  document.body.insertAdjacentHTML(
+    "beforeend",
+    `<div class="fls-preloader" aria-hidden="true">
+       <div class="fls-preloader__body">
+         <div class="fls-preloader__logo">${LOGO_SVG}</div>
+       </div>
+     </div>`
+  );
+  const root = document.querySelector(".fls-preloader");
+  const counterEl = root.querySelector(".fls-preloader__counter");
+  const lineEl = root.querySelector(".fls-preloader__line span");
+  const logoPaths = root.querySelectorAll(".logo-path");
+  html.setAttribute("data-fls-preloader-loading", "");
+  html.setAttribute("data-fls-scrolllock", "");
+  const startTime = performance.now();
+  let loaded = 0;
+  let target = 0;
+  let shown = 0;
+  let done = false;
+  function render(value) {
+    const v = Math.round(value);
+    if (counterEl) counterEl.textContent = `${v}%`;
+    if (lineEl) lineEl.style.width = `${v}%`;
+    logoPaths.forEach((p) => p.style.strokeDashoffset = 100 - value);
   }
+  function onImage() {
+    loaded++;
+    target = loaded / images.length * 100;
+  }
+  images.forEach((img) => {
+    const probe = new Image();
+    probe.onload = probe.onerror = onImage;
+    probe.src = img.dataset.src || img.currentSrc || img.src;
+  });
+  function tick() {
+    if (done) return;
+    if (shown < target) shown = Math.min(target, shown + SPEED);
+    render(shown);
+    const minTimePassed = performance.now() - startTime >= MIN_SHOW_TIME;
+    if (shown >= 100 && minTimePassed) {
+      done = true;
+      finish(root);
+      return;
+    }
+    requestAnimationFrame(tick);
+  }
+  render(0);
+  requestAnimationFrame(tick);
+  setTimeout(() => {
+    if (done) return;
+    done = true;
+    render(100);
+    finish(root);
+  }, MAX_WAIT);
+  if (onceMode) storage.set(location.href, "preloaded");
+}
+function finish(root) {
+  const html = document.documentElement;
+  html.setAttribute("data-fls-preloader-loaded", "");
+  html.removeAttribute("data-fls-preloader-loading");
+  html.removeAttribute("data-fls-scrolllock");
+  if (root) setTimeout(() => root.remove(), FADE_TIME + 100);
 }
 document.addEventListener("DOMContentLoaded", preloader);
 function searchBarInit() {

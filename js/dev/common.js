@@ -24,14 +24,14 @@ function addLoadedAttr() {
   }
 }
 let bodyLockStatus = true;
-let bodyLockToggle = (delay = 500) => {
+let bodyLockToggle = (delay = 300) => {
   if (document.documentElement.hasAttribute("data-fls-scrolllock")) {
     bodyUnlock(delay);
   } else {
     bodyLock(delay);
   }
 };
-let bodyUnlock = (delay = 500) => {
+let bodyUnlock = (delay = 300) => {
   if (bodyLockStatus) {
     const lockPaddingElements = document.querySelectorAll("[data-fls-lp]");
     setTimeout(() => {
@@ -47,10 +47,10 @@ let bodyUnlock = (delay = 500) => {
     }, delay);
   }
 };
-let bodyLock = (delay = 500) => {
+let bodyLock = (delay = 300) => {
   if (bodyLockStatus) {
     const lockPaddingElements = document.querySelectorAll("[data-fls-lp]");
-    const lockPaddingValue = window.innerWidth - document.body.offsetWidth + "px";
+    const lockPaddingValue = "0px";
     lockPaddingElements.forEach((lockPaddingElement) => {
       lockPaddingElement.style.paddingRight = lockPaddingValue;
     });
