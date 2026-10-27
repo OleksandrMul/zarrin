@@ -847,7 +847,6 @@ html:not([data-fls-touch]) .button--big:hover, html:not([data-fls-touch]) .butto
   gap: 0.5rem;
 }
 .form-subscribe__line {
-  display: flex;
   align-self: stretch;
   line-height: 1.5;
 }
@@ -1810,7 +1809,7 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     flex: 0 1 20rem;
   }
   .form-subscribe__button {
-    align-self: stretch;
+    align-self: flex-start;
   }
 }
 @media (min-width: 38.18625em){
