@@ -843,9 +843,12 @@ html:not([data-fls-touch]) .button--big:hover, html:not([data-fls-touch]) .butto
 
 .form-subscribe {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 .form-subscribe__line {
+  display: flex;
+  align-self: stretch;
   line-height: 1.5;
 }
 .form-subscribe__input {
@@ -1379,6 +1382,11 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
     width: 100%;
   }
 }
+@media (max-width: 32.24875em){
+  .form-subscribe {
+    flex-direction: column;
+  }
+}
 @media (width <= 29.99875em){
   .header__actions {
     gap: 0.9375rem;
@@ -1388,9 +1396,6 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   }
 }
 @media (max-width: 29.99875em){
-  .form-subscribe {
-    flex-direction: column;
-  }
   .search-bar {
     padding-inline: 0.625rem;
   }
@@ -1764,16 +1769,6 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   .subscribe__title {
     line-height: 0.95;
   }
-  .form-subscribe {
-    align-items: center;
-    justify-content: center;
-  }
-  .form-subscribe__line {
-    flex: 0 1 20rem;
-  }
-  .form-subscribe__button {
-    align-self: start;
-  }
   .search-bar__button {
     align-self: start;
     min-height: 3.4375rem;
@@ -1804,6 +1799,18 @@ html:not([data-fls-touch]) .popup__close:hover path, html:not([data-fls-touch]) 
   }
   .popup--message [data-fls-popup-body] {
     padding-block: 2.8125rem;
+  }
+}
+@media (min-width: 32.24875em){
+  .form-subscribe {
+    align-items: center;
+    justify-content: center;
+  }
+  .form-subscribe__line {
+    flex: 0 1 20rem;
+  }
+  .form-subscribe__button {
+    align-self: stretch;
   }
 }
 @media (min-width: 38.18625em){
